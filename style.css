@@ -1,0 +1,11 @@
+body
+{
+    background-size: cover;   
+}
+.button{
+    float: right;
+    border: 1px solid white;
+}
+#play{
+    font-size: 20px;
+}
