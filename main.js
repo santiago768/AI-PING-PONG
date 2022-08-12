@@ -15,6 +15,12 @@ var paddle1Y;
 var  playerscore =0;
 var audio1;
 var pcscore =0;
+
+function preload(){
+touch_paddel=loadSound("ball_touch_paddel.wav");
+missed_ball=loadSound("missed.wav");
+}
+
 //ball x and y and speedx speed y and radius
 var ball = {
     x:350/2,
@@ -141,11 +147,14 @@ function move(){
    ball.x = ball.x + ball.dx;
    ball.y = ball.y + ball.dy;
    if(ball.x+ball.r>width-ball.r/2){
-       ball.dx=-ball.dx-0.5;       
+       ball.dx=-ball.dx-0.5;  
+       touch_paddel .play();     
    }
   if (ball.x-2.5*ball.r/2< 0){
   if (ball.y >= paddle1Y&& ball.y <= paddle1Y + paddle1Height) {
     ball.dx = -ball.dx+0.5; 
+    touch_paddel.play();
+    
   }
   else{
     pcscore++;
